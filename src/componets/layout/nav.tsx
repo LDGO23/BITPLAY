@@ -10,8 +10,6 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -113,16 +111,8 @@ export default function MiniDrawer() {
             <AppBar sx={{ backgroundColor: '#1d1d22', display: 'flex' }} position="fixed" open={open}>
                 <Toolbar sx={{ justifyContent: 'space-between' }}>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={handleDrawerOpen}
-                            edge="start"
-                            sx={{
-                                marginRight: 5,
-                                ...(open && { display: 'none' }),
-                            }}
-                        >
+                        <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start"
+                            sx={{ marginRight: 5, ...(open && { display: 'none' }),}}>
                             <MenuIcon />
                         </IconButton>
                         <SportsEsportsIcon />
@@ -131,7 +121,7 @@ export default function MiniDrawer() {
                         </Typography>
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <FavoriteIcon sx={{ padding: '10px', fontSize: '34px', ml: 1 }} />
+                        <FavoriteIcon sx={{ fontSize: open ? '34px' : '24px', ml: 1 }} />
                         <NotificationsIcon sx={{ ml: 1 }} />
                         <AccountCircleIcon sx={{ ml: 1 }} />
                     </Box>
@@ -158,14 +148,7 @@ export default function MiniDrawer() {
                         { text: 'Ofertas', icon: <LoyaltyIcon /> },
                     ].map((item) => (
                         <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
-                                sx={{
-                                    '&:hover': {
-                                        backgroundColor: 'purple',
-                                        '& .MuiListItemIcon-root': {
-                                            color: 'white',
-                                        },
-                                    },
+                            <ListItemButton sx={{'&:hover': {backgroundColor: 'purple','& .MuiListItemIcon-root': {color: 'white',},},
                                     minHeight: 48,
                                     justifyContent: open ? 'initial' : 'center',
                                     px: 2.5,
