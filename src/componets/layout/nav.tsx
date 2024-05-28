@@ -115,8 +115,8 @@ export default function MiniDrawer() {
                             <MenuIcon />
                         </IconButton>
                         <SportsEsportsIcon />
-                        <Typography variant="h6" noWrap component="div">
-                            GameNexus
+                        <Typography variant="h6" noWrap component="div" sx={{padding: '20px'}}>
+                            BITPLAY
                         </Typography>
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -133,11 +133,13 @@ export default function MiniDrawer() {
                         color: '#FFFFFF',
                     },
                 }} variant="permanent" open={open}>
-                <DrawerHeader>
-                    <IconButton onClick={handleDrawerClose}>
-                        <MenuIcon sx={{ color: '#FFFFFF', backgroundColor: 'Purple' }} />
-                    </IconButton>
-                </DrawerHeader>
+              <DrawerHeader sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Typography sx={{ color: '#FFFFFF' }}>Explorar</Typography>
+                <IconButton onClick={handleDrawerClose}>
+                    <MenuIcon sx={{ color: '#FFFFFF', backgroundColor: 'Purple' }} />
+                </IconButton>
+            </DrawerHeader>
+
                 <Divider />
                 <List sx={{ color: '#FFFFFF', backgroundColor: '#1d1d22' }}>
                     {[

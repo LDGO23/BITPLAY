@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
@@ -13,18 +14,21 @@ import SwipeableViews from 'react-swipeable-views';
 const images = [
     {
         label: 'Brawl Stars',
+        logpath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUoeTh2WCk1bmcIEMjzoJvNb-mnzILein-dPSnBV5alg&s',
         imgPath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGdlXtovofL0OSyIxc47jBu8CPxwpIg4oScWROnnhCCQ&s',
         description: 'Brawl Stars es un juego móvil de acción y estrategia desarrollado por Supercell, donde los jugadores compiten en diferentes modos de juego usando una variedad de personajes únicos con habilidades especiales.',
         likes: '1.5K'
     },
     {
         label: 'PUBG',
+        logpath: 'https://play-lh.googleusercontent.com/uqq6a-fHayQxsNQkxB9ZZXag8N7Du5mOEKcScr9yltHqx3RKgCdr9VJHKGO2vY_GUe0=w240-h480-rw',
         imgPath: 'https://wallpapers.com/images/featured/pubg-4k-m7d01u319yw5wo0m.jpg',
         description: 'PUBG es un juego de batalla real desarrollado por PUBG Corporation, donde 100 jugadores compiten en una isla para ser el último en pie.',
         likes: '2.3K',
     },
     {
         label: 'Fornite',
+        logpath: 'https://i.pinimg.com/564x/4b/ab/34/4bab34086b84ee2a0e1b66b1e82ed0be.jpg',
         imgPath: 'https://n4g.com/articles/wp-content/uploads/2023/03/fortnite-cyber-city-characters-chapter-4-season-2.jpg',
         description: 'Fortnite es un mundo lleno de experiencias. Entren en la isla y compitan para ser el último jugador (o equipo) en pie. Creen una isla con sus propias reglas. Pasen tiempo con sus amigos en una isla creada por alguien más. O salven al mundo acabando con hordas de monstruos junto a otros jugadores.',
         likes: '2.3K',
@@ -53,7 +57,7 @@ function Populares() {
             <Typography variant="h5" gutterBottom sx={{ color: 'purple', textAlign: 'center', margin: '2%', fontWeight: 'bold', fontSize: '35px' }}>
                 Populares
             </Typography>
-            <Box sx={{ flexGrow: 1, bgcolor: '#1d1d22', p: 2, position: 'relative', margin: 'auto' }}>
+            <Box sx={{ flexGrow: 1, bgcolor: '#1d1d22', p: 2, position: 'relative', margin: 'auto', boxShadow:'0 0 20px Purple' }}>
 
                 {/* Iteracion de las imagens */}
                 <SwipeableViews
@@ -83,15 +87,29 @@ function Populares() {
                                     {/* Titulo, descripcion, me gustas */}
                                     <Grid item xs={12} md={12} sm={12} lg={6} sx={{ padding: '20px' }}>
                                         <Paper elevation={0} sx={{ p: 2, bgcolor: '#1d1d22' }}>
-                                            <Typography variant="h6" sx={{ color: 'purple', padding: '10%', fontWeight: 'bold' }}>
-                                                {step.label}
+                                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                                            <Box
+                                            component="img"
+                                            sx={{
+                                                width: '10%',
+                                                height: 'auto',
+                                                maxWidth: '100%',
+                                                maxHeight: '100%',
+                                                objectFit: 'cover',
+                                                mr: 2,
+                                            }}
+                                            src={step.logpath}
+                                            />
+                                            <Typography variant="h6" sx={{ color: 'purple', fontWeight: 'bold' }}>
+                                            {step.label}
                                             </Typography>
-                                            <Typography variant="body2" sx={{ color: 'white', display: { xs: 'none', sm: 'block' } }}>
-                                                {step.description}
-                                            </Typography>
-                                            <Typography variant="body2" sx={{ color: 'white', display: { xs: 'none', sm: 'block' }, padding: '10%' }}>
-                                                {step.likes} de personas le gusta
-                                            </Typography>
+                                        </Box>
+                                        <Typography variant="body2" sx={{ color: 'white', display: { xs: 'none', sm: 'block' } }}>
+                                            {step.description}
+                                        </Typography>
+                                        <Typography variant="body2" sx={{ color: 'white', display: { xs: 'none', sm: 'block' }, padding: '10%' }}>
+                                            {step.likes} de personas le gusta
+                                        </Typography>
                                         </Paper>
                                     </Grid>
                                 </Grid>
@@ -127,6 +145,7 @@ function Populares() {
                 </Button>
             </Box>
         </Container>
+
     );
 }
 
